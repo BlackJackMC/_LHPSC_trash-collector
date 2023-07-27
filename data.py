@@ -37,7 +37,8 @@ def _save_data(contents, local_folder, access_token=None):
 
 def download_map(owner, repo_name, path, local_folder):
     try:
-        _save_data(_fetch_data(owner, repo_name, path), local_folder)
+        data = _fetch_data(owner, repo_name, path)
+        _save_data(data, local_folder)
     except:
         raise Exception(f"Failed to update map")
     else:
